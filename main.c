@@ -11,6 +11,9 @@
 #include <string.h>
 #include <ctype.h>
 
+/**
+ * Main-Funktion
+ **/
 int main() {
   // Variablen die benötigt werden
   int tageProMonat[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
