@@ -2,7 +2,7 @@
  * Gibt an der wie vielte Tag im Jahr es ist
  * Autor: Merlin Schmidt
  * Erstellt am: 11.01.2021
- * Zuletzt bearbeitet: 18.01.2021
+ * Zuletzt bearbeitet: 25.01.2021
  **/
 
 #include <stdio.h>
@@ -11,6 +11,9 @@
 #include <time.h>
 #include <string.h>
 #include <ctype.h>
+
+// Deklaration der LeapYear Funktion
+int leapYear (int y);
 
 /**
  * Main-Funktion
@@ -25,6 +28,11 @@ int main() {
   // Eingabe des Jahres
   printf("Geben Sie das Jahr ein: \n");
   scanf(" %i", &year);
+
+  // Check für Schaltjahr
+  if (leapYear(year) == 1) {
+    tageProMonat[1]++;
+  }
 
   // Bestimmung des Schaltjahres und ändern der Anzahl der Tage im Februar
   if (year % 4 == 0) {
@@ -80,4 +88,25 @@ int main() {
   printf("Es ist der %i. Tag im Jahr!\n", tage);
 
   return 0;
+}
+
+// Funktion für die Bestimmung eines Schaltjahres
+int leapYear (int y) {
+  if (y % 4 == 0) {
+    if (y % 100 == 0) {
+      if (y % 400 == 0) {
+        printf("Schaltjahr!\n");
+        return 1;
+      }else{
+        printf("Kein Schaltjahr!\n");
+        return 0;
+      }
+    }else{
+      printf("Schaltjahr!\n");
+      return 1;
+    }
+  }else{
+    printf("Kein Schaltjahr!\n");
+    return 0;
+  }
 }
