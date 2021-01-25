@@ -34,23 +34,6 @@ int main() {
     tageProMonat[1]++;
   }
 
-  // Bestimmung des Schaltjahres und ändern der Anzahl der Tage im Februar
-  if (year % 4 == 0) {
-    if (year % 100 == 0) {
-      if (year % 400 == 0) {
-        printf("Schaltjahr!\n");
-        tageProMonat[1]++;
-      }else{
-        printf("Kein Schaltjahr!\n");
-      }
-    }else{
-      printf("Schaltjahr!\n");
-      tageProMonat[1]++;
-    }
-  }else{
-    printf("Kein Schaltjahr!\n");
-  }
-
   // Eingabe die Monats in do-While für den Check der Gültigkeit
   printf("Geben Sie den Monat ein: \n");
 
