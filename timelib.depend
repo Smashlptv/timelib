@@ -1,0 +1,15 @@
+# depslib dependency file v1.0
+1613386479 source:c:\_desktop\schule_programmieren\timelib\library.c
+	"library.h"
+
+1613385145 c:\_desktop\schule_programmieren\timelib\library.h
+
+1613385174 source:c:\_desktop\schule_programmieren\timelib\main.c
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	<time.h>
+	<string.h>
+	<ctype.h>
+	"library.h"
+

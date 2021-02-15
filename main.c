@@ -11,7 +11,7 @@
 #include <time.h>
 #include <string.h>
 #include <ctype.h>
-#include "bib.h"
+#include "library.h"
 
 /**
  * Main-Funktion

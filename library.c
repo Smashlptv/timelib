@@ -1,10 +1,10 @@
-#include "bib.h"
+#include "library.h"
 
 // Check ob das Datum legitim ist
 int exists_date(int day, int month, int year)
 {
   if (year > 2400 || year < 1582) {
-    printf("UngÃ¼ltiges Datum!\n");
+    printf("Ungültiges Datum!\n");
 
     return 0;
   } else {
@@ -16,7 +16,7 @@ int exists_date(int day, int month, int year)
 // Inputs vom User anfordern
 void input_date(int *day, int *month, int *year)
 {
-  // Variable um eingegebene Tage auf gÃ¼ltigkeit zu prÃ¼fen
+  // Variable um eingegebene Tage auf gültigkeit zu prüfen
   int gueltige_tage = 0;
 
   printf("Geben Sie ein Jahr ein: \n");
@@ -27,21 +27,21 @@ void input_date(int *day, int *month, int *year)
     scanf(" %i", month);
 
     if (*month < 1 || *month > 12) {
-      printf("Bitte gÃ¼ltigen Monat eingeben!\n");
+      printf("Bitte gültigen Monat eingeben!\n");
     }
   }while(*month > 12 || *month < 1);
 
   // Variable um zu speichern wie viele Tage der Monat hat
   gueltige_tage = get_days_for_month(*month, *year);
 
-  // Eingabe des Tages, ebenfalls mit GÃ¼ltigkeitscheck
+  // Eingabe des Tages, ebenfalls mit Gültigkeitscheck
   printf("Geben Sie einen Tag ein: \n");
 
   do{
     scanf(" %i", day);
 
     if (*day < 1 || *day > gueltige_tage) {
-      printf("Bitte gÃ¼ltigen Tag eingeben!\n");
+      printf("Bitte gültigen Tag eingeben!\n");
     }
   }while(*day < 1 || *day > gueltige_tage);
 }
@@ -51,7 +51,7 @@ int day_of_the_year(int day, int month, int year)
 {
   int result = 0;
 
-  for (int i = 0; i < month; i++) {
+  for (int i = 1; i < month; i++) {
     result = result + get_days_for_month(i, year);
   }
 
@@ -60,7 +60,7 @@ int day_of_the_year(int day, int month, int year)
   return result;
 }
 
-// Gibt die Tage des Monats unter BerÃ¼cksichtigung des Schaltjahres aus
+// Gibt die Tage des Monats unter Berücksichtigung des Schaltjahres aus
 int get_days_for_month(int month, int year)
 {
   int tageProMonat[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
@@ -72,11 +72,11 @@ int get_days_for_month(int month, int year)
   return tageProMonat[month-1];
 }
 
-// Funktion fÃ¼r die Bestimmung eines Schaltjahres
+// Funktion für die Bestimmung eines Schaltjahres
 int is_leapyear (int year)
 {
   if (year < 1582) {
-    printf("UngÃ¼ltig!\n");
+    printf("Ungültig!\n");
     return -1;
   }
 
