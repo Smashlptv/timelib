@@ -18,16 +18,19 @@
  **/
 int main()
 {
-  // Variablen die benötigt werden
-  int year = 0, month = 0, day = 0;
+  // Initialisieren des Structs
+  struct date date;
+  date.year = 0;
+  date.month = 0;
+  date.day = 0;
 
   // Fordern der Inputs bis Gültigkeit
   do {
-    input_date(&day, &month, &year);
-  }while(exists_date(day, month, year) != 1);
+    input_date(&date.day, &date.month, &date.year);
+  }while(exists_date(date) != 1);
 
   // Ausgabe Ergebniss
-  printf("Es ist der %i. Tag im Jahr!\n", day_of_the_year(day, month, year));
+  printf("Es ist der %i. Tag im Jahr!\n", day_of_the_year(date));
 
   return 0;
 }

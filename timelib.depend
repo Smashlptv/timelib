@@ -1,8 +1,8 @@
 # depslib dependency file v1.0
-1613386479 source:c:\_desktop\schule_programmieren\timelib\library.c
+1614677597 source:c:\_desktop\schule_programmieren\timelib\library.c
 	"library.h"
 
-1613385145 c:\_desktop\schule_programmieren\timelib\library.h
+1614677749 c:\_desktop\schule_programmieren\timelib\library.h
 
 1613385174 source:c:\_desktop\schule_programmieren\timelib\main.c
 	<stdio.h>

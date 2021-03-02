@@ -1,9 +1,9 @@
 #include "library.h"
 
 // Check ob das Datum legitim ist
-int exists_date(int day, int month, int year)
+int exists_date(struct date date)
 {
-  if (year > 2400 || year < 1582) {
+  if (date.year > 2400 || date.year < 1582) {
     printf("Ungültiges Datum!\n");
 
     return 0;
@@ -47,15 +47,15 @@ void input_date(int *day, int *month, int *year)
 }
 
 // Berechnung der Tage die schon vergangen sind
-int day_of_the_year(int day, int month, int year)
+int day_of_the_year(struct date date)
 {
   int result = 0;
 
-  for (int i = 1; i < month; i++) {
-    result = result + get_days_for_month(i, year);
+  for (int i = 1; i < date.month; i++) {
+    result = result + get_days_for_month(i, date.year);
   }
 
-  result = result + day;
+  result = result + date.day;
 
   return result;
 }
