@@ -17,7 +17,7 @@ int exists_date(int day, int month, int year)
 void input_date(int *day, int *month, int *year)
 {
   // Variable um eingegebene Tage auf gültigkeit zu prüfen
-  int gueltige_tage = 0;
+  int possible_days = 0;
 
   printf("Geben Sie ein Jahr ein: \n");
   scanf(" %i", year);
@@ -32,7 +32,7 @@ void input_date(int *day, int *month, int *year)
   }while(*month > 12 || *month < 1);
 
   // Variable um zu speichern wie viele Tage der Monat hat
-  gueltige_tage = get_days_for_month(*month, *year);
+  possible_days = get_days_for_month(*month, *year);
 
   // Eingabe des Tages, ebenfalls mit Gültigkeitscheck
   printf("Geben Sie einen Tag ein: \n");
@@ -40,10 +40,10 @@ void input_date(int *day, int *month, int *year)
   do{
     scanf(" %i", day);
 
-    if (*day < 1 || *day > gueltige_tage) {
+    if (*day < 1 || *day > possible_days) {
       printf("Bitte gültigen Tag eingeben!\n");
     }
-  }while(*day < 1 || *day > gueltige_tage);
+  }while(*day < 1 || *day > possible_days);
 }
 
 // Berechnung der Tage die schon vergangen sind
@@ -63,13 +63,13 @@ int day_of_the_year(int day, int month, int year)
 // Gibt die Tage des Monats unter Berücksichtigung des Schaltjahres aus
 int get_days_for_month(int month, int year)
 {
-  int tageProMonat[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+  int days_per_month[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
 
   if (is_leapyear(year) == 1) {
-    tageProMonat[1]++;
+    days_per_month[1]++;
   }
 
-  return tageProMonat[month-1];
+  return days_per_month[month-1];
 }
 
 // Funktion für die Bestimmung eines Schaltjahres
